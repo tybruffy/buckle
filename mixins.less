@@ -1,0 +1,129 @@
+/* ==========================================================================
+	Utility Mixins
+	========================================================================== */
+
+	.sans-font( @font: @book ) {
+		font-family: @font, @sansFontFamily;
+		font-weight: normal;
+	}
+
+	.serif-font( @font: @serif ) {
+		font-family: @font, @serifFontFamily;
+		font-weight: normal;
+	}
+
+	.logo( @width, @height, @url: "/assets/img/logo.png" ) {
+		width: @width;
+		height: @height;
+		display: block;
+		padding: 0;
+
+		text-indent: -10000px;
+		background: url( @url );
+		background-repeat: no-repeat;
+	}
+
+/* ==========================================================================
+	Decorative Mixins
+	========================================================================== */
+	
+	.glow( @size, @color ) {
+		.box-shadow( 0 0 @size @color );
+	}
+
+/* ==========================================================================
+	Nav Mixins
+	========================================================================= */
+
+	.separated-list( @spacing: 10px, @seperator: "|", @color: inherit, @size: inherit ) {
+		& > * {
+			&:before {
+				content: @seperator;
+				padding: 0 @spacing;
+				color: @color;
+				font-size: @size;
+				vertical-align: top;
+			}
+
+			&:first-child {
+				&:before {
+					content: "";
+				}
+			}
+		}
+	}
+
+/* ==========================================================================
+	Grid List Mixin
+	========================================================================= */
+
+	.grid-list( @itemWidth, @itemCount, @totalWidth: @gridRowWidth ) {
+		@margin:        (@totalWidth - (@itemWidth * @itemCount)) / ( (@itemCount * 2) - 2 );
+		@marginLeft:    floor( @margin );
+		@marginRight:   round( @margin );
+		@adjustedWidth: @totalWidth + @marginLeft + @marginRight;
+		@nthChild:     ~"@{itemCount}n+1";
+
+		width: @adjustedWidth;
+		overflow: hidden;
+		position: relative;
+		left: -@marginLeft;
+
+		.grid-item  {
+			margin: 10px 0;
+			width: @itemWidth;
+			margin-left: @marginLeft;
+			margin-right: @marginRight;
+
+			&:nth-child( @nthChild ) {
+				clear: both;
+			}
+		}
+	}
+
+/* ==========================================================================
+	Site Structure Mixins
+	========================================================================= */
+
+	.centered-carousel( @imgWidth ) {
+		@media all and ( max-width: @imgWidth ) {
+			width: @imgWidth;
+			margin-left: 50%;
+			left: -@imgWidth/2;
+		}
+	}
+
+
+	/* --------------------------------------------------------------------------
+		Overflow Wrap Requirements:;
+		------------------------------------------------------------------------- */
+	
+	.overflow-wrap( @width: @gridRowWidth ) {
+		width: 100%;
+		min-height: 100%;
+		overflow-x: hidden;
+
+		@media all and ( max-width: @width ) {
+			width: @width;
+		}
+	}
+
+	/* --------------------------------------------------------------------------
+		Sticky Footer Requirements:;
+			html, body {
+				height: 100%;
+			}
+			and apply .sticky-footer to the footer.
+		------------------------------------------------------------------------- */
+	
+	.sticky-footer-container( @height: @footerHeight ) {
+		min-height: 100%;
+		position: relative;
+
+		&::after {
+			content: "";
+			height: @height;
+			display: block;
+		}
+	}
+

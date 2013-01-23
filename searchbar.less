@@ -1,0 +1,53 @@
+
+.searchbar {
+	@input-width:	245px;
+	@button-width: 	65px;
+	@height:		28px;
+	@font-size:		14px;
+
+
+	.search-input {
+		display: block;
+		width: @input-width;
+		height: @height;
+		.box-sizing( border-box );		
+	
+		float: left;
+		margin: 0;
+
+		line-height: @height;
+
+		* {
+			.box-sizing( border-box );
+		}
+
+	}
+
+	.search-submit {
+		display: block;
+		width: @button-width;
+		height: @height;
+		
+		float: left;
+		margin: 0;
+
+		// line-height: @height;
+	}
+
+	&.searchbar-select2 {
+		.select2-container-multi .select2-choices .select2-search-field input {
+			height: @height;
+			margin: 0;
+		}
+
+		ul.select2-choices {
+			height: @height !important;
+		}
+
+		.select2-search-choice {
+			height: auto;
+		}
+	}
+
+}
+

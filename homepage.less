@@ -1,0 +1,47 @@
+/* ==========================================================================
+	Carousel
+	========================================================================= */
+
+.carousel {
+	height: @carouselHeight;
+	width: 100%;
+	margin: 0;
+	z-index: 2;
+
+	.carousel-inner {
+		// .centered-carousel( @minCarouselWidth );
+	}
+
+	.item {
+		min-width: @minCarouselWidth;
+		
+		img {
+			margin: 0 auto;
+			min-height: @carouselHeight;
+			min-width: @minCarouselWidth;
+		}		
+	}
+
+	.fading-item {
+		.transition( .7s ease-in-out opacity );
+		left: 0 !important;
+
+		&.next.left, 
+		&.prev.right {
+			z-index: 1;
+			opacity: 1;
+		}
+		&.active.left, 
+		&.active.right {
+			opacity: 0;
+			z-index: 2;
+		}
+	}
+
+}
+
+
+/* ==========================================================================
+	Featured Boxes
+	========================================================================= */
+

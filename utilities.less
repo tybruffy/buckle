@@ -1,0 +1,112 @@
+/* ==========================================================================
+	General Styles
+	========================================================================= */
+
+	body {
+		width: 100%;
+		.sans-font();
+
+		strong {
+			.sans-font( @bold );
+		}
+	}
+
+	.admin-edit-post {
+		position: absolute;
+		color: white;
+		background: rgba(0,0,0,0.5);
+		padding: 5px 10px;
+	}
+
+/* ==========================================================================
+	Mixin Components
+	========================================================================= */
+
+	.sticky-footer {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.horizontal-list {
+		.clearfix;
+		padding: 0;
+		margin: 0;
+		& > * { 
+			display: block; 
+			float: left; 
+		}
+	}
+
+/* ==========================================================================
+	Layout Styles
+	========================================================================= */
+
+	.cleared-left { clear: left; }
+	.cleared-right { clear: right; }
+	.cleared { clear: both; }
+
+	.relative { 
+		position: relative;
+		z-index: 1;
+	}
+
+	.hide-overflow { overflow: hidden; }
+
+	.menu {
+		padding: 0;
+		.clearfix();
+		
+		list-style: none;
+		margin: 0;
+
+		.menu-column {
+			float: left;
+			margin-right: 35px;
+		}
+	}
+
+/* ==========================================================================
+	Text Styles
+	========================================================================= */
+
+	.uppercase { text-transform: uppercase; }
+
+	.more-link {
+		white-space: nowrap;
+	}
+
+	.center { text-align: center; }
+
+/* ==========================================================================
+	Reset Styles
+	========================================================================= */
+
+	.no-hover {
+		&:hover {
+			text-decoration: none;
+			color: inherit;
+		}
+	}
+
+	.no-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.hidden-text {
+		text-indent: -10000px;
+	}
+
+/* =============================================================================
+	WordPress Generated Classes
+	See: http://codex.wordpress.org/CSS#WordPress_Generated_Classes
+	========================================================================== */
+
+	.aligncenter { display: block; margin: 0 auto; }
+	.alignleft { margin: 23px 20px 10px 0; float: left; }
+	.alignright { margin: 0 0 20px 10px; float: right; }

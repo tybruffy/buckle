@@ -1,0 +1,127 @@
+/*
+	This file is intended to easily overwrite Bootstrap's default,
+	as well as to provide an easy way to edit the most commonly
+	changed variables.
+
+ */
+
+/* ==========================================================================
+	Layout
+	========================================================================= */
+
+	@footerHeight:       200px;
+
+	@carouselHeight:     500px;
+	@minCarouselWidth:   1400px;
+
+
+/* ==========================================================================
+	Colors
+	========================================================================= */
+
+
+	// Grays
+	// -------------------------
+
+	@grayDarker:            #423d3e;
+	@grayDark:              #615b5c;
+	@gray:                  #c0bebe;
+	@grayLight:             #e2e2e2;
+	@grayLighter:           #cfcece;
+
+
+	// Colors
+	// -------------------------
+
+	@brandColor: @blue;
+
+
+/* ==========================================================================
+	Text
+	========================================================================= */
+
+	@bodyBackground:        @white;
+	@textColor:             @grayDarker;
+
+
+	// Links
+	// -------------------------
+	@linkColor:             @brandColor;
+	@linkColorHover:        darken(@brandColor, 15%);
+
+
+	// Fonts
+	// -------------------------
+	@light: 		"";
+	@book: 			"Futura W01 Book";
+	@bold: 			"Futura W01 Heavy";
+	@condensed: 	"FuturaW01-LightCondense 774878";
+	@demi-bold: 	"";
+	@medium:		"FuturaW01-MediumCondens";
+	@serif:         "";
+	@serif-bold:    "";
+
+	@headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
+	@headingsFontWeight:    bold;    // instead of browser default, bold
+	@headingsColor:         inherit; // empty to use BS default, @textColor
+
+
+
+
+
+
+/* ==========================================================================
+	Defaults - Feel free to edit down here, but often you won't need to.
+	========================================================================= */
+
+	@sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+	@serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+	@monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
+
+	// Sizes
+	// -------------------------
+	@baseFontSize:          16px;
+	@baseFontFamily:        @sansFontFamily;
+	@baseLineHeight:        1.6em;
+	@altFontFamily:         @serifFontFamily;	
+
+
+/* ==========================================================================
+	Navbar
+	========================================================================= */
+
+	@navbarHeight:                    auto;
+	@navbarBackgroundHighlight:       #ffffff;
+	@navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
+	@navbarBorder:                    darken(@navbarBackground, 12%);
+
+	@navbarText:                      #777;
+	@navbarLinkColor:                 #777;
+	@navbarLinkColorHover:            @grayDark;
+	@navbarLinkColorActive:           @gray;
+	@navbarLinkBackgroundHover:       transparent;
+	@navbarLinkBackgroundActive:      transparent;
+
+
+/* ==========================================================================
+	Button Colors
+	========================================================================= */
+
+	@btnBackground:                     @white;
+	@btnBackgroundHighlight:            darken(@white, 10%);
+	@btnBorder:                         #bbb;
+
+	@btnPrimaryBackground:              @linkColor;
+	@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 20%);
+
+
+/* ==========================================================================
+	Grid / Site Size. 
+	========================================================================= */
+	
+	// 1020px default, no gutters.
+	// -------------------------
+	
+	@gridColumns:             12;
+	@gridColumnWidth:         85px;
+	@gridGutterWidth:         0px;

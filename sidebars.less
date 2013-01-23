@@ -1,0 +1,42 @@
+
+
+.sidebar-nav {
+	//	Should be applied to ul
+
+	& > li {
+
+		a {
+
+			&:hover,
+			&.active {
+				color: @brandColor;
+				background: transparent;
+			}
+		}
+	}
+
+	.subnav {
+		//	Should be applied to a ul within an li.
+		display: none;
+
+		& > li {
+			a {
+
+
+				&:hover {
+
+				}
+
+				&:before {
+
+				}
+			}
+
+			&.active {
+				a {
+
+				}
+			}
+		}
+	}
+}
