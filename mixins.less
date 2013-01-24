@@ -75,11 +75,12 @@
 			margin-left: @marginLeft;
 			margin-right: @marginRight;
 
-			&:nth-child( @nthChild ) {
+			(~"&:nth-child(@{nthChild})") {
 				clear: both;
 			}
 		}
 	}
+
 
 /* ==========================================================================
 	Site Structure Mixins
