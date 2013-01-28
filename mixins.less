@@ -58,11 +58,12 @@
 	========================================================================= */
 
 	.grid-list( @itemWidth, @itemCount, @totalWidth: @gridRowWidth ) {
-		@margin:        (@totalWidth - (@itemWidth * @itemCount)) / ( (@itemCount * 2) - 2 );
-		@marginLeft:    floor( @margin );
-		@marginRight:   round( @margin );
-		@adjustedWidth: @totalWidth + @marginLeft + @marginRight;
-		@nthChild:     ~"@{itemCount}n+1";
+		
+		@margin:           (@totalWidth - (@itemWidth * @itemCount)) / ( (@itemCount * 2) - 2 );
+		@marginLeft:       floor( @margin );
+		@marginRight:      round( @margin );
+		@adjustedWidth:    @totalWidth + @marginLeft + @marginRight;
+		@clearFix:         (~".grid-item:nth-child(@{itemCount}n+1)");	 
 
 		width: @adjustedWidth;
 		overflow: hidden;
@@ -74,10 +75,10 @@
 			width: @itemWidth;
 			margin-left: @marginLeft;
 			margin-right: @marginRight;
-
-			(~"&:nth-child(@{nthChild})") {
-				clear: both;
-			}
+		}
+		
+		(~"@{clearFix}") {
+			clear: both;
 		}
 	}
 
