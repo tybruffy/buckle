@@ -1,0 +1,232 @@
+/* ==========================================================================
+	General
+	========================================================================= */
+
+	input[type="submit"] {
+		// Easy way to get the hover/active states set.
+		.btn;
+		// Keep this up top, so you can override it's settings
+		.buttonBackground( @brandColor, lighten(@brandColor, 2%) );	
+		padding: 5px 10px;
+
+		.border-radius( 0 );
+	}
+
+	input, select {
+		color: @textColor;
+	}
+
+/* =============================================================================
+	Wrappers
+	========================================================================== */
+
+	form.padded-form {
+		.box-sizing( border-box );
+		width: 100%;
+		padding: 15px;
+
+		margin: 15px 10px 25px 0;
+	}
+
+	.bordered-form {
+		border: 1px solid @special-color;
+	}
+
+	fieldset { width: 100%; }
+	
+	legend {
+		color: @special-color;
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 1.75em;
+		margin: 1em 0;
+		display: block;
+		border-bottom: 1px solid @special-color;
+		width: 100%;
+	}
+
+/* .............................................................................
+	Generic
+	.......................................................................... */
+
+	form p { color: darken( @text-color, 10% ); }
+
+	input[type="text"],
+	input[type="password"]	{
+		width: 100%;
+		padding: 6px;
+		.box-sizing( border-box );
+
+		font-size: 11px;
+		font-family: Arial,  Verdana, Helvetica, sans-serif;
+		color: @text-color;
+		border: 1px solid lighten( @text-color, 50% );
+	}
+
+	input[type="image"]	{
+		width: auto;
+		border: none;
+		padding: 0;
+	}
+	  
+	input[readonly="readonly"],
+	input[disabled="disabled"]
+	{
+		background: @disabled-color;
+	}
+
+	input[type="submit"] {
+		width: auto;
+		color: @text-color;
+	}
+
+	textarea	{
+		padding: 3px;
+		width: 457px;
+		max-width: 457px;
+		min-width: 457px;
+		height: 90px;
+		min-height: 90px;
+		border: 1px solid lighten( @text-color, 50% );
+	}
+
+	select { 
+		padding: 3px; 
+		width: 100%; 
+	}
+
+	label	{
+		display: block;
+
+		margin: 0 0 3px 0;
+		font-weight: 700;
+		line-height: 1.4em;
+		color: darken( @text-color, 10% );
+	}
+	label > span { color: @required-color; }
+
+/* .............................................................................
+	Layout
+	.......................................................................... */
+
+	.form-row {
+		position: relative;
+		margin: 15px 0;
+		zoom: 1;
+	
+		&:before,
+		&:after 
+		{
+			content: "";
+			display: table;
+		}
+
+		&:after { clear: both; }	
+	}
+
+	.row-inline	{
+		width: 225px;
+		
+		float: left;
+		margin: 0 15px 0 0;
+	}
+
+
+/* .............................................................................
+	Checkbox Styles
+	.......................................................................... */	
+
+	label > input[type="checkbox"],
+	label > input[type="radio"]
+	{
+		position: absolute;
+		left: 0;
+		font-size: inherit;
+		top: .1em;
+	}
+
+	/*	This rule allows for multi line labels which 
+		contain checkboxes and radio inputs. 	*/
+	.checkbox-label,
+	.radio-label
+	{
+		position: relative;
+		padding-left: 20px;
+	}
+
+/* .............................................................................
+	Select Box Styles
+	.......................................................................... */	
+
+	select + select {
+		margin-left: 10px;		
+	}
+
+/* .............................................................................
+	Errors
+	.......................................................................... */	
+
+	.error-message {
+		color: @error-color;
+	}
+
+	input.error[type=text]	{
+		border: 1px solid @error-color;
+		background: lighten( @error-color, 85% );
+	}
+
+/* .............................................................................
+	Special Cases
+	.......................................................................... */
+
+	.centered-label {
+		position: relative;
+		top: 5px;
+	}
+
+	.inline-label {
+		& > label {
+			display: inline-block;
+			margin-right: 5px;
+		}
+
+		& > input {
+			width: 50%;
+		}
+	}
+
+
+	/* For use in the case of stacked labels, eg
+		multiple radio buttons/checkboxes	*/
+	label.stacked {
+		font-weight: normal;
+		margin: 10px 0 ;
+	}
+
+/* .............................................................................
+	Input Sizes  // Best when applied to containing div.
+	.......................................................................... */
+
+	.form1 { .get-width(1); }
+	.form2 { .get-width(2); }
+	.form3 { .get-width(3); }
+	.form4 { .get-width(4); }
+	.form5 { .get-width(5); }
+	.form6 { .get-width(6); }
+	.form7 { .get-width(7); }
+	.form8 { .get-width(8); }
+	.form9 { .get-width(9); }
+	.form10 { .get-width(10); }
+	.form11 { .get-width(11); }
+	.form12 { .get-width(12); }
+	.form13 { .get-width(13); }
+	.form14 { .get-width(14); }
+	.form15 { .get-width(15); }
+	.form16 { .get-width(16); }
+
+	.auto-width { width: auto; }
+
+	.get-width( @columns ) {
+		@value: ( (@grid-width * @columns) + @field-spacing * (@columns - 1) );
+		width: ~"@{value}px";
+	}	
