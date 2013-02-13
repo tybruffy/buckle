@@ -57,7 +57,27 @@
 	Grid List Mixin
 	========================================================================= */
 
-	.grid-list( @itemWidth, @itemCount, @totalWidth: @gridRowWidth ) {
+	.grid-list( @itemWidth, @itemCount, @totalWidth: @gridRowWidth, @clearing: true ) when not ( @clearing ) {
+		
+		@margin:           (@totalWidth - (@itemWidth * @itemCount)) / ( (@itemCount * 2) - 2 );
+		@marginLeft:       floor( @margin );
+		@marginRight:      round( @margin );
+		@adjustedWidth:    @totalWidth + @marginLeft + @marginRight;
+
+		width: @adjustedWidth;
+		overflow: hidden;
+		position: relative;
+		left: -@marginLeft;
+
+		.grid-item  {
+			margin: 10px 0;
+			width: @itemWidth;
+			margin-left: @marginLeft;
+			margin-right: @marginRight;
+		}
+	}
+
+	.grid-list( @itemWidth, @itemCount, @totalWidth: @gridRowWidth, @clearing: true ) when ( @clearing ) {
 		
 		@margin:           (@totalWidth - (@itemWidth * @itemCount)) / ( (@itemCount * 2) - 2 );
 		@marginLeft:       floor( @margin );
