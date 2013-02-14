@@ -77,6 +77,19 @@
 		}
 	}
 
+	.stretchy {
+		&:after {
+			content: "";
+			width: 100%;
+			display: inherit;
+			padding-bottom: 9999px;
+			margin-bottom: -9999px;
+			background: inherit;
+			z-index: 0;
+			position: relative; 
+		}
+	}
+
 /* ==========================================================================
 	Text Styles
 	========================================================================= */
