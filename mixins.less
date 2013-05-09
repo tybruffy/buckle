@@ -31,6 +31,17 @@
 		.box-shadow( 0 0 @size @color );
 	}
 
+	.overflow-wrap( @width: @gridRowWidth ) {
+		width: 100%;
+		min-height: 100%;
+		overflow: hidden;
+
+		@media all and ( max-width: @width ) {
+			width: @width;
+		}
+	}
+
+
 /* ==========================================================================
 	Nav Mixins
 	========================================================================= */
@@ -54,8 +65,12 @@
 	}
 
 /* ==========================================================================
-	Grid List Mixin
+	Layout Mixins
 	========================================================================= */
+
+/* --------------------------------------------------------------------------
+	Grid List Mixin
+	------------------------------------------------------------------------- */
 
 	.grid-list( @itemWidth, @itemCount, @totalWidth: @gridRowWidth, @clearing: true ) when not ( @clearing ) {
 		
@@ -103,31 +118,23 @@
 	}
 
 
-/* ==========================================================================
-	Site Structure Mixins
-	========================================================================= */
+	.centered-carousel( @img-width, @item-width ) {
+		@margin: (-(@img-width - @item-width)/2);
+		.item {
+			overflow: hidden;
+			
+			.container {
+				width: @item-width;
+				margin-left: auto;
+				margin-right: auto;
 
-	.centered-carousel( @imgWidth ) {
-		@media all and ( max-width: @imgWidth ) {
-			width: @imgWidth;
-			margin-left: 50%;
-			left: -@imgWidth/2;
-		}
-	}
-
-
-	/* --------------------------------------------------------------------------
-		Overflow Wrap Requirements:;
-		------------------------------------------------------------------------- */
-	
-	.overflow-wrap( @width: @gridRowWidth ) {
-		width: 100%;
-		min-height: 100%;
-		overflow: hidden;
-
-		@media all and ( max-width: @width ) {
-			width: @width;
-		}
+				img {
+					min-width: @img-width;
+					max-width: none;
+					margin-left: @margin;
+				}
+			}
+		} 
 	}
 
 	/* --------------------------------------------------------------------------
