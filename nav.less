@@ -1,0 +1,52 @@
+/* ==========================================================================
+	Primary Nav
+	========================================================================= */
+
+	.primary-navbar .nav {
+
+		li {
+			&.active {
+				a {
+					.box-shadow( none );
+					color: @brandColor;
+				}
+			}
+
+			& > a {
+
+				&:hover,
+				&:focus {
+
+				}
+			}
+		}
+
+		.dropdown:hover .dropdown-menu {
+			display: block;
+
+		}
+		
+	}
+
+	.primary-navbar .nav > .active > a,
+	.primary-navbar .nav > .active > a:hover 
+	{
+		.box-shadow( none );
+		color: @brandColor;
+	}
+
+/* ==========================================================================
+	Justifed Nav
+	========================================================================= */
+
+	.justified-nav {
+		display: table;
+
+		li,
+		.menu-item {
+			display: table-cell;
+			width: 1%;
+			float: none;
+			text-align: center;
+		}
+	}
