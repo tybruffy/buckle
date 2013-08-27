@@ -2,7 +2,7 @@
 	Utility Mixins
 	========================================================================== */
 
-	.sans-font( @font: @book ) {
+	.sans-font( @font: @light ) {
 		font-family: @font, @sansFontFamily;
 		font-weight: normal;
 	}
@@ -72,7 +72,7 @@
 	Grid List Mixin
 	------------------------------------------------------------------------- */
 
-	.grid-list( @itemWidth, @itemCount, @totalWidth: @gridRowWidth, @clearing: true ) when not ( @clearing ) {
+	.grid-list( @itemWidth, @itemCount, @totalWidth: @primary-column-width, @clearing: true ) when not ( @clearing ) {
 		
 		@margin:           (@totalWidth - (@itemWidth * @itemCount)) / ( (@itemCount * 2) - 2 );
 		@marginLeft:       floor( @margin );
@@ -92,7 +92,7 @@
 		}
 	}
 
-	.grid-list( @itemWidth, @itemCount, @totalWidth: @gridRowWidth, @clearing: true ) when ( @clearing ) {
+	.grid-list( @itemWidth, @itemCount, @totalWidth: @primary-column-width, @clearing: true ) when ( @clearing ) {
 		
 		@margin:           (@totalWidth - (@itemWidth * @itemCount)) / ( (@itemCount * 2) - 2 );
 		@marginLeft:       floor( @margin );
@@ -112,6 +112,28 @@
 			margin-right: @marginRight;
 		}
 		
+		(~"@{clearFix}") {
+			clear: both;
+		}
+	}
+
+	.percentage-grid (@count, @margin) {
+		@width: percentage( (1/@count) );
+		@clearFix:         (~".grid-item:nth-child(@{count}n+1)");	 
+
+		width: 100%;
+		position: static;
+
+		.grid-item {
+			width: @width;
+			padding-left: (@margin/2);
+			padding-right: (@margin/2);
+			margin-left: 0;
+			margin-right: 0;
+			background: transparent;
+			.box-sizing( border-box );
+		}
+
 		(~"@{clearFix}") {
 			clear: both;
 		}
