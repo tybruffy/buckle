@@ -51,14 +51,8 @@
 
 	// Fonts
 	// -------------------------
-	@light: 		"";
-	@book: 			"Futura W01 Book";
-	@bold: 			"Futura W01 Heavy";
-	@condensed: 	"FuturaW01-LightCondense 774878";
-	@demi-bold: 	"";
-	@medium:		"FuturaW01-MediumCondens";
-	@serif:         "";
-	@serif-bold:    "";
+	@text-font:        "Helvetica";
+	@bold-font:        "Helvetica";
 
 	@headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
 	@headingsFontWeight:    bold;    // instead of browser default, bold
@@ -73,16 +67,16 @@
 	Defaults - Feel free to edit down here, but often you won't need to.
 	========================================================================= */
 
-	@sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
-	@serifFontFamily:       Georgia, "Times New Roman", Times, serif;
-	@monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
+	@sans-font-stack:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+	@serif-font-stack:       Georgia, "Times New Roman", Times, serif;
+	@mono-font-stack:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
 	// Sizes
 	// -------------------------
 	@baseFontSize:          16px;
-	@baseFontFamily:        @sansFontFamily;
-	@baseLineHeight:        1.6em;
-	@altFontFamily:         @serifFontFamily;	
+	@baseFontFamily:        @sans-font-stack;
+	@baseLineHeight:        1.6;
+	@altFontFamily:         @serif-font-stack;	
 
 
 /* ==========================================================================

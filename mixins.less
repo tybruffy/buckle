@@ -2,13 +2,8 @@
 	Utility Mixins
 	========================================================================== */
 
-	.sans-font( @font: @light ) {
-		font-family: @font, @sansFontFamily;
-		font-weight: normal;
-	}
-
-	.serif-font( @font: @serif ) {
-		font-family: @font, @serifFontFamily;
+	.web-font( @font: @text-font, @stack: @sans-font-stack ) {
+		font-family: @font, @stack;
 		font-weight: normal;
 	}
 
