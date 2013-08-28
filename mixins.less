@@ -98,7 +98,6 @@
 		@marginLeft:       floor( @margin );
 		@marginRight:      round( @margin );
 		@adjustedWidth:    @totalWidth + @marginLeft + @marginRight;
-		@clearFix:         (~".grid-item:nth-child(@{itemCount}n+1)");	 
 
 		width: @adjustedWidth;
 		overflow: hidden;
@@ -112,14 +111,13 @@
 			margin-right: @marginRight;
 		}
 		
-		(~"@{clearFix}") {
+		.grid-item:nth-child( @{itemCount}n+1 ) {
 			clear: both;
 		}
 	}
 
 	.percentage-grid (@count, @margin) {
 		@width: percentage( (1/@count) );
-		@clearFix:         (~".grid-item:nth-child(@{count}n+1)");	 
 
 		width: 100%;
 		position: static;
@@ -134,7 +132,7 @@
 			.box-sizing( border-box );
 		}
 
-		(~"@{clearFix}") {
+		.grid-item:nth-child(@{count}n+1) {
 			clear: both;
 		}
 	}
