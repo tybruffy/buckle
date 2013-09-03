@@ -39,3 +39,29 @@ h6, .h6 {
 
 }
 
+.heading-seperator {
+	position: relative;
+
+	&[title]:before {
+		content: attr( title );
+		padding-right: 15px;
+		
+		position: absolute;
+		z-index: 3;
+		
+		background: #fff;
+		white-space: nowrap;
+	}
+
+	&[title]:after {
+		content: "";
+		display: block;
+		width: 100%;
+		
+		position: absolute;
+		z-index: 2;
+		top: 50%;
+		
+		border-bottom: 1px solid @brand-primary;
+	}
+}
