@@ -39,6 +39,20 @@ h6, .h6 {
 
 }
 
+ol {
+	counter-reset: olCounter;
+	list-style-type: none;
+	
+	li {
+		&:before {
+			content: counters(olCounter, ".") ". ";
+			counter-increment: olCounter;
+			.web-font(@bold-font);
+			color: @brand-primary;
+		}
+	}
+}
+
 .heading-seperator {
 	position: relative;
 
