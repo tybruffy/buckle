@@ -1,38 +1,19 @@
 /* ==========================================================================
-	Primary Nav
+	Nav Style Overrides
 	========================================================================= */
-
-	.primary-navbar .nav {
-
+	
+	.nav {
 		li {
-			&.active {
-				a {
-					.box-shadow( none );
-					color: @brandColor;
-				}
-			}
-
-			& > a {
-
-				&:hover,
-				&:focus {
-
-				}
+			& > a,
+			& > a:hover,
+			& > a:focus,
+			&.active a {
+				.box-shadow( none );
+				color: @brand-primary;
+				background: none;
+				padding: 0;
 			}
 		}
-
-		.dropdown:hover .dropdown-menu {
-			display: block;
-
-		}
-		
-	}
-
-	.primary-navbar .nav > .active > a,
-	.primary-navbar .nav > .active > a:hover 
-	{
-		.box-shadow( none );
-		color: @brandColor;
 	}
 
 /* ==========================================================================
@@ -52,3 +33,4 @@
 			text-align: center;
 		}
 	}
+

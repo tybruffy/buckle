@@ -2,13 +2,8 @@
 	Utility Mixins
 	========================================================================== */
 
-	.sans-font( @font: @light ) {
-		font-family: @font, @sansFontFamily;
-		font-weight: normal;
-	}
-
-	.serif-font( @font: @serif ) {
-		font-family: @font, @serifFontFamily;
+	.web-font( @font: @text-font, @stack: @sans-font-stack ) {
+		font-family: @font, @stack;
 		font-weight: normal;
 	}
 
@@ -58,7 +53,7 @@
 
 			&:first-child {
 				&:before {
-					content: "";
+					content: none;
 				}
 			}
 		}
@@ -98,7 +93,6 @@
 		@marginLeft:       floor( @margin );
 		@marginRight:      round( @margin );
 		@adjustedWidth:    @totalWidth + @marginLeft + @marginRight;
-		@clearFix:         (~".grid-item:nth-child(@{itemCount}n+1)");	 
 
 		width: @adjustedWidth;
 		overflow: hidden;
@@ -112,14 +106,13 @@
 			margin-right: @marginRight;
 		}
 		
-		(~"@{clearFix}") {
+		.grid-item:nth-child( @{itemCount}n+1 ) {
 			clear: both;
 		}
 	}
 
 	.percentage-grid (@count, @margin) {
 		@width: percentage( (1/@count) );
-		@clearFix:         (~".grid-item:nth-child(@{count}n+1)");	 
 
 		width: 100%;
 		position: static;
@@ -134,7 +127,7 @@
 			.box-sizing( border-box );
 		}
 
-		(~"@{clearFix}") {
+		.grid-item:nth-child(@{count}n+1) {
 			clear: both;
 		}
 	}

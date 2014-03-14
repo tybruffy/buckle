@@ -1,7 +1,7 @@
 
 h1, h2, h3, h4, h5, h6 {
 	line-height: 1em;
-	color: @brandColor;
+	color: @brand-primary;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, 
@@ -39,3 +39,43 @@ h6, .h6 {
 
 }
 
+ol {
+	counter-reset: olCounter;
+	list-style-type: none;
+	
+	li {
+		&:before {
+			content: counters(olCounter, ".") ". ";
+			counter-increment: olCounter;
+			.web-font(@bold-font);
+			color: @brand-primary;
+		}
+	}
+}
+
+.heading-seperator {
+	position: relative;
+
+	&[title]:before {
+		content: attr( title );
+		padding-right: 15px;
+		
+		position: absolute;
+		z-index: 3;
+		
+		background: #fff;
+		white-space: nowrap;
+	}
+
+	&[title]:after {
+		content: "";
+		display: block;
+		width: 100%;
+		
+		position: absolute;
+		z-index: 2;
+		top: 50%;
+		
+		border-bottom: 1px solid @brand-primary;
+	}
+}
